@@ -7,6 +7,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/beans.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/jdbcWithoutTx.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext2.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -52,5 +53,7 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjtools:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.24" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.11.0" level="project" />
   </component>
 </module>
