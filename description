@@ -1,0 +1,15 @@
+学习Spring中事务的过程
+1、首先学习数据库中的事务，了解事务的四个特性：ACID
+2、学习数据库并发的问题
+   脏读
+   不可重复读
+   幻象读
+   第一类丢失更新
+   第二类丢失更新
+3、数据库中锁机制
+4、数据库四种隔离级别
+    READ UNCOMMITED
+    READ COMMITED
+    REPEATABLE READ
+    SERIALIZABLE
+5、ThreadLocal基础知识

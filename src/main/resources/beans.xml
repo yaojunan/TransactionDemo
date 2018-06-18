@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"/>
+
+        <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+              p:dataSource-ref="dataSource"/>
+
+        <!--<tx:advice id="txAdvice" transaction-manager="txManager">
+            <tx:attributes>
+                <tx:method name="get*" read-only="true"/>
+                <tx:method name="add*" rollback-for="Exception"/>
+                <tx:method name="update*"/>
+            </tx:attributes>
+        </tx:advice>
+
+
+        <aop:config>
+            <aop:pointcut id="serviceMethod" expression="execution(* com.smart.pojo.*Forum.*(..))"/>
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
+        </aop:config>-->
+
+        <tx:annotation-driven transaction-manager="txManager"/>
+</beans>

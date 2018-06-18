@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+    </bean>
+
+
+    <bean id="bbtForumTarget" class="com.smart.pojo.BbtForum"/>
+
+    <bean id="bbtForum"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+          p:transactionManager-ref="txManager"
+          p:target-ref="bbtForumTarget">
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED,readonly</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+                <prop key="addTopic">PROPAGATION_REQUIRED,+PessimisticFailureException</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
